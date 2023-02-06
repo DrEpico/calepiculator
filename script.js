@@ -3,7 +3,7 @@ const sum = function(numbers = []) {
 };
 
 const sub = function(numbers = []) {
-    return numbers.reduce((a, b) => a - b, 0); //sum([4, 9]) => -13?!
+    return numbers.reduce((a, b) => a - b);
 };
 
 const multiply = function(numbers = []) {
@@ -11,9 +11,14 @@ const multiply = function(numbers = []) {
 };
 
 const div = function(numbers = []) {
-    return numbers.reduce((a, b) => a / b, 1); //div([6, 3]) => 0.05555555555555555?!
+    return numbers.reduce((a, b) => a / b); 
 };
 
 const power = function(numbers = []) {
-    return numbers.reduce((a, b) => a ** b, 1); //power([4, 2]) => 1?!
+    if (numbers.length < 2) {
+        return 0;
+    }
+    return numbers[0] ** numbers[1];
 };
+
+
