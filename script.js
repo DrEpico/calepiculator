@@ -28,6 +28,16 @@ finalCalculation.forEach(button => {
         }
     });
 });
+
+const clearCalculation = document.querySelectorAll("#container .clearCalc");
+clearCalculation.forEach(button => {
+    button.addEventListener("click", function() {  
+        inputField.value = "";
+        numbers = [];
+        updateNumbers = [];
+        
+    });
+});
 const sum = function(numbers) {
     return numbers.reduce(function(a, b){
         console.log(a + b)
