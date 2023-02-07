@@ -21,7 +21,8 @@ finalCalculation.forEach(button => {
         numbers[1] = numbers[0];
         numbers[0] = parseFloat(document.querySelector('#input').value);  
         if(operator === "+"){
-            return console.log(sum(updateNumbers));
+            inputField.value = sum(updateNumbers);
+            //console.log(sum(updateNumbers));
         } else {
             console.log("error")
         }
