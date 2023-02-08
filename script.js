@@ -20,7 +20,7 @@ finalCalculation.forEach(button => {
         numbers[1] = numbers[0];
         numbers[0] = parseFloat(document.querySelector('#input').value);
         switch(true){
-            case operator === "+":
+            case operator === "+": 
                 inputField.value = sum(updateNumbers);
                 console.log(updateNumbers);
                 console.log(sum(updateNumbers));
@@ -59,7 +59,7 @@ finalCalculation.forEach(button => {
 });
 
 const backBtn = document.querySelector("#parent-container #back");
-backBtn.addEventListener("click", function(button) {
+backBtn.addEventListener("click", function() {
     inputField.value = inputField.value.substring(0, inputField.value.length -1);
 })
 
