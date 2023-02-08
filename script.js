@@ -1,6 +1,6 @@
 numbers = []
 const inputField = document.querySelector("form #input");
-const buttons = document.querySelectorAll("#container .midCalc");
+const buttons = document.querySelectorAll("#parent-container .midCalc");
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         operator = this.innerHTML;
@@ -14,7 +14,7 @@ buttons.forEach(button => {
     });
 });
 
-const finalCalculation = document.querySelectorAll("#container .endCalc");
+const finalCalculation = document.querySelectorAll("#parent-container .endCalc");
 finalCalculation.forEach(button => {
     button.addEventListener("click", function() {  
         numbers[1] = numbers[0];
@@ -58,26 +58,54 @@ finalCalculation.forEach(button => {
     });
 });
 
+const backBtn = document.querySelector("#parent-container #back");
+backBtn.addEventListener("click", function(button) {
+    inputField.value = inputField.value.substring(0, inputField.value.length -1);
+})
+
+const decimalBtn = document.querySelector("#parent-container #decimal");
+decimalBtn.addEventListener("click", function() { 
+        if (!inputField.value.includes(".") && inputField.value.length < 24){
+            inputField.value += ".";
+        }
+    });
+
+
+const numpad = document.querySelectorAll("#parent-container .numpad");
+numpad.forEach(button => {
+    button.addEventListener("click", function() { 
+        if (inputField.value.length < 24){
+            inputField.value += button.textContent;
+        }
+    });
+});
+
+document.querySelector("#input").addEventListener("keypress", function(event) {
+        const inputValue = event.key;
+        const allowedValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "-", "+", "*", "/"];
+        if (!allowedValues.includes(inputValue)) {
+        event.preventDefault();
+        }
+    });
+
 const sum = function(numbers) {
     return numbers[1] + numbers[0];
-    // return numbers.reduce(function(a, b){
-    //     return a + b;
-    // });
 };
 
 const sub = function(numbers) {
     return numbers[1] - numbers[0];
-    // return numbers.reduce((a, b) => a - b);
 };
 
 const multiply = function(numbers) {
     return numbers[1] * numbers[0];
-    //return numbers.reduce((a, b) => a * b, 1);
 };
 
 const div = function(numbers) {
+    if (numbers[1] === 0) {
+        return "Error: Divide by zero";
+    } else {
     return numbers[1] / numbers[0];
-    //return numbers.reduce((a, b) => a / b); 
+    }
 };
 
 const power = function(numbers = []) {
