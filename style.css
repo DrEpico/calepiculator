@@ -1,24 +1,55 @@
+html {
+    font-family: monospace;
+}
+
+input, button {
+    font-family: monospace;
+}
+
 form{
     display: grid;
     place-items: center;
+    margin: 8vh;
 }
 
 #parent-container{
     display: flex;
     flex-wrap: wrap;
-    max-width: 200px;
-}
-
-#input{
-    height: 25px;
-    width: 200px
+    max-width: 300px;
 }
 
 input {
     text-align: right;
+    height: 60px;
+    width: 292px;
+    font-size: 35px;
+    background-color: lightgray;
 }
 
-button{
-    width: 50px;
-    height: 50px;
+button {
+    width: 75px;
+    height: 75px;
+    border: none;
+    font-size: 25px;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 5vh;
+}
+ 
+h2 {
+    font-size: 15px;
+}
+
+.operator {
+    background-color: rgb(72, 167, 167)
+}
+
+.special {
+    background-color: lightcoral;
+}
+
+.number {
+    background-color: rgb(255, 192, 168);
 }

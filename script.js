@@ -65,7 +65,7 @@ backBtn.addEventListener("click", function() {
 
 const decimalBtn = document.querySelector("#parent-container #decimal");
 decimalBtn.addEventListener("click", function() { 
-        if (!inputField.value.includes(".") && inputField.value.length < 24){
+        if (!inputField.value.includes(".") && inputField.value.length < 10){
             inputField.value += ".";
         }
     });
@@ -74,7 +74,7 @@ decimalBtn.addEventListener("click", function() {
 const numpad = document.querySelectorAll("#parent-container .numpad");
 numpad.forEach(button => {
     button.addEventListener("click", function() { 
-        if (inputField.value.length < 24){
+        if (inputField.value.length < 10){
             inputField.value += button.textContent;
         }
     });
